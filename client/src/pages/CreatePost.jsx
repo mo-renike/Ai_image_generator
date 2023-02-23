@@ -84,12 +84,13 @@ const CreatePost = () => {
     };
 
     return (
-        <section className="max-w-7xl mt-16  m-auto">
+        <section className="bg-hero min-h-[calc(100vh)]">
+            <div className="max-w-7xl bg-hero sm:p-8 px-4 mt-16 m-auto">
             <div>
                 <h1 className="font-extrabold text-text text-[42px]">Create  </h1>
                 <p className="mt-2 text-grey max-w-[500px]">
                     Experience the Magic of AI-Generated Images with Our Cutting-Edge Image Generator Webapp.
-                    Generate an image based on a prompt and share it with the community.
+                   <br /> Generate an image based on a prompt and share it with the community.
                 </p>
             </div>
 
@@ -154,6 +155,7 @@ const CreatePost = () => {
                     )}
                 </div>
             </form>
+            </div>
         </section>
     );
 };

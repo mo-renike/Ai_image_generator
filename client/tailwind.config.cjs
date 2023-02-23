@@ -17,8 +17,9 @@ module.exports = {
       },
       colors: {
         black: "#040404",
-        dark: "#101010",
-        darkgrey: "#1E1E1E",
+        dark: "#000400",
+        hero: "#000609",
+        darkgrey: "#121415",
         accent: "#C5B358",
         brand: "#FF6347",
         text: "#f5f5f5",
