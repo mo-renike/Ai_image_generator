@@ -17,7 +17,7 @@ const FormFields = ({
                     {labelName}
                 </label>
                 {isSurpriseMe && (
-                    <button onClick={handleSurpriseMe} className="px-2 py-1 bg-gray-400 text-black text-xs font-bold font-medium rounded-[5px]" type='button'>
+                    <button onClick={handleSurpriseMe} className="py-1 px-2 bg-darkgrey text-gray-500 text-[10px]  font-medium rounded-[5px]" type='button'>
                         Surprise me
                     </button>
                 )}

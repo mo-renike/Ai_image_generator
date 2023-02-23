@@ -42,7 +42,7 @@ const CreatePost = () => {
                     }
                 );
                 const data = await response.json();
-                console.log(data);
+              //  console.log(data);
                 setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
             } catch (err) {
                 console.log(err);
@@ -84,7 +84,7 @@ const CreatePost = () => {
     };
 
     return (
-        <section className="max-w-7xl  m-auto">
+        <section className="max-w-7xl mt-16  m-auto">
             <div>
                 <h1 className="font-extrabold text-text text-[42px]">Create  </h1>
                 <p className="mt-2 text-grey max-w-[500px]">
@@ -108,7 +108,7 @@ const CreatePost = () => {
                         labelName="Prompt"
                         type="text"
                         name="prompt"
-                        placeholder="An Impressionist oil painting of sunflowers in a purple vase…"
+                        placeholder="Enter a prompt..."
                         value={form.prompt}
                         handleChange={handleChange}
                         isSurpriseMe
@@ -120,19 +120,19 @@ const CreatePost = () => {
                         <button
                             type="button"
                             onClick={generateImage}
-                            className=" text-white bg-accent font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                            className=" text-black bg-accent font-bold rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                         >
                             {generatingImg ? "Generating..." : "Generate Image"}
                         </button>
                         <button
                             type="submit"
-                            className="mt-3 text-white bg-brand text-white font-medium rounded-md text-sm sm:w-auto px-5 py-2.5 text-center w-full"
+                            className="mt-3 text-white bg-brand text-black font-bold rounded-md text-sm sm:w-auto px-5 py-2.5 text-center w-full"
                         >
                             {loading ? "Sharing..." : "Share with the Community"}
                         </button>
                     </div>
                 </div>
-                <div className="relative form_photo mt-6 md:m-auto bg-darkgrey border border-darkgrey text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
+                <div className="relative form_photo md:m-auto bg-darkgrey border border-darkgrey text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
                     {form.photo ? (
                         <img
                             src={form.photo}
@@ -143,7 +143,7 @@ const CreatePost = () => {
                         <img
                             src={preview}
                             alt="preview"
-                            className="w-full image h-full object-cober opacity-50"
+                            className="w-full image h-full object-contain opacity-50"
                         />
                     )}
 
