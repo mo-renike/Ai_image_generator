@@ -89,7 +89,7 @@ const Home = () => {
 
     return (
         <section className="mx-auto">
-            <div className="max-w-7xl  py-8 m-auto hero">
+            <div className="max-w-7xl sm:p-8 px-4 py-8 m-auto hero">
                 <div className="hero__text"> <br />
                     <h1 className="text-text">Ai Generated Images</h1>
                     <p className="mt-2 text-text max-w-[520px]">
