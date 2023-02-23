@@ -11,13 +11,13 @@ const App = () => {
         <Link to="/">
           <h2 className='text-white font-bold'>Gener8</h2>
         </Link>
-        <Link to="/community" className="font-inter font-medium text-white px-2 ml-auto">Images</Link>
-        <Link to="/" className="font-inter font-bold bg-accent text-black px-2 py-1 rounded-md">Create</Link>
+        <Link to="/" className="font-inter font-medium text-white px-2 ml-auto">Images</Link>
+        <Link to="/create" className="font-inter font-bold bg-accent text-black px-2 py-1 rounded-md">Create</Link>
       </header>
       <main className="sm:p-8 px-4 py-8 w-full bg-dark  min-h-[calc(100vh)]">
         <Routes>
-          <Route path="/" element={<CreatePost />} />
-          <Route path="/community" element={<Home />} />
+          <Route path="/create" element={<CreatePost />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </main>
     </BrowserRouter>

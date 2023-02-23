@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Loader, FormFields, Card } from "../components";
 import { preview } from "../assets";
+import Pagination from "../components/Pagination";
 
 const RenderCards = ({ data, title }) => {
     if (data?.length > 0) {
@@ -58,6 +59,32 @@ const Home = () => {
         }, 500)
         )
     }
+
+    // set dynamic imgPerPage value according to screen size
+    if (window.innerWidth <= 768) {
+        var dynamicPerPage = 3;
+    } else {
+        dynamicPerPage = 6;
+    }
+
+    // implement pagination
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(dynamicPerPage);
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstRepo = indexOfLastPost - postsPerPage;
+    const currentPosts = allPosts.slice(indexOfFirstRepo, indexOfLastPost);
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    // calculate page numbers
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(allPosts.length / postsPerPage); i++) {
+        pageNumbers.push(i);
+    }
+
     return (
         <section className="max-w-7xl mt-16 mx-auto">
             <div>
@@ -87,7 +114,7 @@ const Home = () => {
                         {searchText && (
                             <h2 className="font-medium text-grey text-sm mb-3">
                                 Showing results for{" "}
-                                <span className="text-accent font-bold">{searchText}</span>
+                                <span className="text-accent font-bold">"{searchText}"</span>
                             </h2>
                         )}
                         <div className="grid mt-10 lg:grid-cols-4 sm:grid-col-3 xs:grid-cols-2 grid-cols-1 gap-3">
@@ -103,6 +130,14 @@ const Home = () => {
                     </>
                 )}
             </div>
+            {allPosts.length ? ( <Pagination
+                allPosts={allPosts}
+                currentPage={currentPage}
+                postsPerPage={postsPerPage}
+                paginate={paginate}
+                pageNumbers={pageNumbers}
+            />) : ""}
+           
         </section>
     );
 };
